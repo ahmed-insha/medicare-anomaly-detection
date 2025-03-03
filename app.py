@@ -16,6 +16,7 @@ def login():
     st.title("🔐 Login to Anomaly Detection")
     username = st.text_input("Username", value="", placeholder="Enter your username")
     password = st.text_input("Password", value="", type="password", placeholder="Enter your password")
+    
     if st.button("Login"):
         if username == USERNAME and password == PASSWORD:
             st.session_state.authenticated = True
@@ -23,7 +24,8 @@ def login():
             st.rerun()
         else:
             st.error("❌ Invalid Username or Password")
- ---- CHECK LOGIN STATUS ----
+
+# ---- CHECK LOGIN STATUS ----
 if not st.session_state.authenticated:
     login()
 else:
@@ -62,6 +64,3 @@ else:
             st.success(f"✅ Normal Case.\n\nDecision Score: {score:.5f}")
     
         st.info("ℹ️ *Lower decision scores may indicate potential anomalies.*")
-    
-    
-    
